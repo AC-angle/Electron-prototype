@@ -1,18 +1,27 @@
 const { app, BrowserWindow } = require('electron');
 
+debugger
+
 function createWindow() {
     // 创建浏览器窗口
     let win = new BrowserWindow({
         width: 800,
         height: 600,
         webPreferences: {
-            // 是否不禁用 Node.js
-            nodeIntegration: true
+            /**
+             * 因为 Electron 在运行环境中引入了 Node.js，所以在 DOM 中有一些额外的变量，比如 module、exports 和 require
+             * 这导致 了许多库不能正常运行，因为它们也需要将同名的变量加入运行环境中
+             * 我们可以通过禁用 Node.js 来解决这个问题
+             */
+            nodeIntegration: false
         }
     });
 
     // 加载index.html文件
     win.loadFile('index.html');
+
+    // 打开开发者工具
+    win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow);

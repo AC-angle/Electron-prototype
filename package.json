@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "npm install && npm run dev",
-    "dev": "electron ."
+    "dev": "electron .",
+    "debug": "echo 'chrome://inspect/#devices' && electron --inspect-brk ."
   },
   "repository": {
     "type": "git",
