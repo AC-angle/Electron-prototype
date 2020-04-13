@@ -1,6 +1,6 @@
 {
   "name": "electron-prototype",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "🎯 基于Electron搭建的原型项目",
   "main": "main.js",
   "scripts": {
@@ -15,6 +15,11 @@
     "directories": {
       "output": "runner"
     },
+    "files": [
+      "**/*",
+      "!**/node_modules/**/*",
+      "!**/runner/**/*"
+    ],
     "win": {
       "target": [
         {
